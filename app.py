@@ -27,7 +27,7 @@ from flask import request, render_template
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        a = request.form.get("text")
+        text = request.form.get("text")
         print(text)
         s = TextBlob(text).sentiment
         return(render_template("index.html", result = s))
